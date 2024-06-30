@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask a Question</title>
+</head>
+<body>
+    <h1>Ask a Question</h1>
+    <form action="/ask" method="post">
+        <input type="text" name="question" placeholder="Enter your question">
+        <button type="submit">Ask</button>
+    </form>
+    <h2>Answer:</h2>
+    <p>{{ answer }}</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
