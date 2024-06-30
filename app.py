@@ -7,7 +7,7 @@ from langchain_community.document_loaders import UnstructuredHTMLLoader, Unstruc
 from langchain_openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain.chains import RetrievalQA
+from langchain.chains import RetrievalQA, StuffDocumentsChain
 
 # Set your API key
 openai_api_key = os.environ.get("OPENAI_API_KEY", "tu_openai_api_key_aqui")
@@ -91,7 +91,7 @@ def ask():
                 chain_type="stuff",
                 return_source_documents=True,
                 chain_type_kwargs={
-                    "prompt_template": prompt_template,
+                    "document_chain": StuffDocumentsChain(prompt_template=prompt_template),
                 },
             )
 
@@ -108,4 +108,5 @@ def ask():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
