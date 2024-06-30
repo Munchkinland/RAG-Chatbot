@@ -1,0 +1,7 @@
+langchain==0.2.2
+langchain-openai==0.1.8
+langchain-community==0.2.3
+unstructured==0.14.4
+faiss-cpu
+tk
+pydantic==1.10.2
