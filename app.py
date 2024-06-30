@@ -13,7 +13,7 @@ from langchain.chains import RetrievalQA, StuffDocumentsChain
 openai_api_key = os.environ.get("OPENAI_API_KEY", "tu_openai_api_key_aqui")
 
 # Initialize LLM
-llm = ChatOpenAI(model="gpt-4", openai_api_key=openai_api_key)
+llm = ChatOpenAI(model="gpt-3.5-turbo", openai_api_key=openai_api_key)
 
 # Define prompt template
 prompt_template = PromptTemplate(
@@ -108,5 +108,6 @@ def ask():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
 
 
