@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Q&A</title>
+    <title>Ask a Question</title>
 </head>
 <body>
-    <h1>Upload a Document</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <button type="submit">Upload</button>
+    <h1>Ask a Question</h1>
+    <form action="/ask" method="post">
+        <input type="text" name="question" placeholder="Enter your question">
+        <button type="submit">Ask</button>
     </form>
+    <h2>Answer:</h2>
+    <p>{{ answer }}</p>
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         <ul>
